@@ -1,0 +1,33 @@
+server:
+  port: 9091
+spring:
+  application:
+    name: league-api
+  datasource:
+    url: jdbc:mysql://localhost:3306/league_db?useSSL=false&allowPublicKeyRetrieval=true&createDatabaseIfNotExist=false&useUnicode=true&serverTimezone=UTC&characterEncoding=utf8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: password
+    hibernate:
+      dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    hikari:
+      maximum-pool-size: 10
+      connection-timeout: 300000
+      maxLifeTime: 300000
+      idleTimeout: 300000
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        generate_statistics: true
+        jdbc:
+          batch_size: 5000
+          fetch_size: 5000
+        order_inserts: true
+        order_updates: true
+  flyway:
+    user: root
+    password: password
+    url: jdbc:mysql://localhost:3306/league_db?createDatabaseIfNotExist=true&useUnicode=true&serverTimezone=UTC&characterEncoding=utf8
+    enabled: false
+    locations: classpath:db/migration
