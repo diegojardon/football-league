@@ -1,0 +1,1 @@
+ALTER TABLE Position MODIFY COLUMN id INT auto_increment;
