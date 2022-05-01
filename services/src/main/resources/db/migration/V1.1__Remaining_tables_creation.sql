@@ -94,7 +94,7 @@ create table Soccer_match
     hasOvertime             boolean    null,
     firstOvertimeScore      varchar(7) null,
     secondOvertimeScore     varchar(7) null,
-    hasPenaltyKicks         int        null,
+    hasPenaltyKicks         boolean    null,
     penaltiesScore          varchar(7) null,
     constraint Soccer_match_pk
         primary key (id)
@@ -123,5 +123,13 @@ create table Soccer_match_detail
     minuteSubstitutionOut int     null,
     minuteSubstitutionIn  int     null,
     constraint Soccer_match_detail_pk
+        primary key (id)
+);
+
+create table Position
+(
+    id                       int auto_increment,
+    positionName             varchar(40) not null,
+    constraint Position_pk
         primary key (id)
 );
